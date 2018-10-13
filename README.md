@@ -103,4 +103,4 @@ if __name__ == '__main__':
 
 PageParser QQ群号: 932301512
 
-![](source/page-parser.jpeg)
+![](source/page-parser-min.jpeg)
