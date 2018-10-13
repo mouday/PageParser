@@ -1,5 +1,7 @@
 # PageParser
 
+[![Build Status](https://travis-ci.org/mouday/PageParser.svg?branch=master)](https://travis-ci.org/mouday/PageParser)
+
 ## 网络爬虫工作流程：
 
 ```
