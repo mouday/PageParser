@@ -9,22 +9,25 @@ pip install page-parser
 
 ## 使用示例
 ```python
+# -*- coding: utf-8 -*-
 
-from baidu_parser import BaiduParser
 import requests
+from page_parser.baidu_parser import BaiduParser
 
-
-# 1、网页下载
+# 1、下载网页
 url = "https://www.baidu.com/"
 response = requests.get(url)
+response.encoding = response.apparent_encoding
 
-# 2、网页解析
+# 2、解析网页
 parser = BaiduParser()
 items = parser.parse_index(response.text)
 
-# 3、数据输出
+# 3、输出数据
 for item in items:
     print(item)
+
+# {'title': '百度一下，你就知道'}
 
 ```
 

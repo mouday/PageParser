@@ -25,8 +25,8 @@ if os.path.exists('README.rst'):
     long_description = open('README.rst', encoding="utf-8").read()
 
 setuptools.setup(
-    name="page-parser",
-    version="0.0.1",
+    name="page_parser",
+    version="0.0.2",
     author="Peng Shiyu",
     author_email="pengshiyuyx@gmail.com",
     description="web crawler or spdier parse page",
