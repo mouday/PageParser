@@ -2,6 +2,10 @@
 
 [![Build Status](https://travis-ci.org/mouday/PageParser.svg?branch=master)](https://travis-ci.org/mouday/PageParser)
 
+## 安装模块
+```
+pip install page-parser
+```
 
 ## 使用示例
 ```python
