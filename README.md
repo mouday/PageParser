@@ -2,6 +2,28 @@
 
 [![Build Status](https://travis-ci.org/mouday/PageParser.svg?branch=master)](https://travis-ci.org/mouday/PageParser)
 
+
+## 使用示例
+```python
+
+from baidu_parser import BaiduParser
+import requests
+
+
+# 1、网页下载
+url = "https://www.baidu.com/"
+response = requests.get(url)
+
+# 2、网页解析
+parser = BaiduParser()
+items = parser.parse_index(response.text)
+
+# 3、数据输出
+for item in items:
+    print(item)
+
+```
+
 ## 网络爬虫工作流程：
 
 ```
@@ -30,6 +52,8 @@
 需要更多的人一起来维护
 
 ## 代码示例
+
+贡献代码，如没有更好的理由，应该按照下面的格式，便于使用者调用
 
 baidu_parser.py
 
