@@ -177,8 +177,8 @@ if __name__ == '__main__':
 ## 加入我们
 ### 基本要求
 1. python的基本语法 + 面向对象 + 迭代器（yield）
-2. 掌握的库：requests、scrapy
-3. 解析库统一使用parsel，简单高效，与scrapy无缝衔接
+2. 掌握的库：requests、parsel、scrapy（了解即可）
+3. 解析库统一使用parsel（基于xpath），简单高效，与scrapy无缝衔接
 4. 不太懂也没关系，自己看参考文章，只要愿意学就会，瞬间提升自己
 
 参考文章：
