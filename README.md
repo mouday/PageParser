@@ -13,7 +13,7 @@
 项目目标：不懂网页解析也能写爬虫
 
 最小项目示例：
-```
+```pyhon
 import requests
 from page_parser.baidu_parser import BaiduParser
 
