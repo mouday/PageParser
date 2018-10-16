@@ -156,6 +156,7 @@ if __name__ == '__main__':
 
 3. 因为网页解析有时效性，所以必须`注明日期`
 
+
 ### 命名规则：
 例如:
 ```
@@ -172,7 +173,29 @@ if __name__ == '__main__':
 
 3. 其他必要的代码
 
+
 ## 加入我们
+### 基本要求
+1. python的基本语法 + 面向对象 + 迭代器（yield）
+2. 掌握的库：requests、scrapy
+3. 解析库统一使用parsel，简单高效，与scrapy无缝衔接
+4. 不太懂也没关系，自己看参考文章，只要愿意学就会，瞬间提升自己
+
+参考文章：
+
+1. [Python编程：class类面向对象](https://blog.csdn.net/mouday/article/details/79002712)
+
+2. [Python编程：生成器yield与yield from区别简单理解](https://blog.csdn.net/mouday/article/details/80760973)
+
+3. [Python爬虫：requests库基本使用](https://blog.csdn.net/mouday/article/details/80087627)
+
+4. [Python网络爬虫之scrapy框架](https://blog.csdn.net/mouday/article/details/79736108)
+
+5. [Python爬虫：xpath常用方法示例](https://blog.csdn.net/mouday/article/details/80364436)
+
+6. [python爬虫：scrapy框架xpath和css选择器语法](https://blog.csdn.net/mouday/article/details/80455560)
+
+### 联系方式
 
 PageParser QQ群号: 932301512
 
