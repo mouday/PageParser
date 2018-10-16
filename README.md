@@ -4,10 +4,30 @@
 
 ## 项目简介
 
-一个爬虫使用的网页解析包，实现最大限度的代码复用
+项目名称：六行代码写爬虫
+
+英文名称：
+
+项目简介：一个爬虫使用的网页解析包，实现最大限度的代码复用
 
 项目目标：不懂网页解析也能写爬虫
 
+最小项目示例：
+```
+import requests
+from page_parser.baidu_parser import BaiduParser
+
+# 1、下载网页
+response = requests.get("https://www.baidu.com/")
+html = response.content.decode("utf-8")
+
+# 2、解析网页
+items = BaiduParser().parse_index(html)
+
+# 3、输出数据
+for item in items: print(item)
+# {'title': '百度一下，你就知道'}
+```
 ## 支持网页
 
 | 序号 |网站 | 网页名称 | 网页地址 |
