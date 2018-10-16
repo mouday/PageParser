@@ -12,7 +12,14 @@
 
 项目目标：不懂网页解析也能写爬虫
 
+
+## 安装模块
+```
+pip install page-parser
+```
+
 最小项目示例：
+
 ```python
 import requests
 from page_parser.baidu_parser import BaiduParser
@@ -28,6 +35,7 @@ items = BaiduParser().parse_index(html)
 for item in items: print(item)
 # {'title': '百度一下，你就知道'}
 ```
+
 ## 支持网页
 
 | 序号 |网站 | 网页名称 | 网页地址 |
@@ -44,10 +52,6 @@ for item in items: print(item)
 | 10 |搜狗搜索 | 微信公众号搜索页 | https://weixin.sogou.com/weixin?type=1&query=百度 |
 
 
-## 安装模块
-```
-pip install page-parser
-```
 
 ## 使用示例
 ```python
