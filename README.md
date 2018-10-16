@@ -11,7 +11,7 @@
 ## 支持网页
 
 网站 | 网页名称 | 网页地址
-- | - | :-
+- | - | -
 百度 | 主页 | https://www.baidu.com/
 豆瓣 | 电影 正在热映 | https://movie.douban.com/
 拉勾 | 招聘职位列表页 | https://www.lagou.com/zhaopin/
