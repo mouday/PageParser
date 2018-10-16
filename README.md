@@ -102,6 +102,8 @@ for item in items:
 
 ## 贡献代码
 
+贡献的代码统一放入文件夹：page_parser
+
 代码示例，如没有更好的理由，应该按照下面的格式，便于使用者调用
 
 baidu_parser.py
