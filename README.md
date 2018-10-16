@@ -2,6 +2,12 @@
 
 [![Build Status](https://travis-ci.org/mouday/PageParser.svg?branch=master)](https://travis-ci.org/mouday/PageParser)
 
+## 项目简介
+
+一个爬虫使用的网页解析包，实现最大限度的代码复用
+
+项目目标：不懂网页解析也能写爬虫
+
 ## 安装模块
 ```
 pip install page-parser
@@ -58,9 +64,9 @@ for item in items:
 
 需要更多的人一起来维护
 
-## 代码示例
+## 贡献代码
 
-贡献代码，如没有更好的理由，应该按照下面的格式，便于使用者调用
+代码示例，如没有更好的理由，应该按照下面的格式，便于使用者调用
 
 baidu_parser.py
 
