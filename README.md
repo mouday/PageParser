@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/mouday/PageParser.svg?branch=master)](https://travis-ci.org/mouday/PageParser)
 
+![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
+
 ## 项目简介
 
 项目名称：六行代码写爬虫
@@ -38,18 +40,18 @@ for item in items: print(item)
 
 ## 支持网页
 
-| 序号 |网站 | 网页名称 | 网页地址 |
-| - |- | - | - |
-| 1 |百度 | 主页 | https://www.baidu.com/ |
-| 2 |豆瓣 | 电影 正在热映 | https://movie.douban.com/ |
-| 3 |拉勾 | 招聘职位列表页 | https://www.lagou.com/zhaopin/ |
-| 4 |企查查 | 融资事件页 | https://www.qichacha.com/elib_financing |
-| 5 |西刺代理 | 主页 | http://www.xicidaili.com/ |
-| 6 |西刺代理 | 国内高匿代理 | http://www.xicidaili.com/nn/ |
-| 7 |西刺代理 | 国内普通代理 | http://www.xicidaili.com/nt/ |
-| 8 |西刺代理 | 国内HTTPS代理 | http://www.xicidaili.com/wn/ |
-| 9 |西刺代理 | 国内HTTP代理 | http://www.xicidaili.com/wt/ |
-| 10 |搜狗搜索 | 微信公众号搜索页 | https://weixin.sogou.com/weixin?type=1&query=百度 |
+| 序号 |网站 | 网页名称 | 解析函数 |网页地址 |
+| - |- | - | - | - |
+| 1 |百度 | 主页 | BaiduParser.parse_index | https://www.baidu.com/ |
+| 2 |豆瓣 | 电影 正在热映 | DoubanParser.parse_movie | https://movie.douban.com/ |
+| 3 |拉勾 | 招聘职位列表页 | LagouParser.parse_zhaopin | https://www.lagou.com/zhaopin/ |
+| 4 |企查查 | 融资事件页 | QichachaParser.parse_financing | https://www.qichacha.com/elib_financing |
+| 5 |西刺代理 | 主页 | XicidailiParser.parse_index |http://www.xicidaili.com/ |
+| 6 |西刺代理 | 国内高匿代理 |XicidailiParser.parse_list | http://www.xicidaili.com/nn/ |
+| 7 |西刺代理 | 国内普通代理 | XicidailiParser.parse_list|http://www.xicidaili.com/nt/ |
+| 8 |西刺代理 | 国内HTTPS代理 | XicidailiParser.parse_list|http://www.xicidaili.com/wn/ |
+| 9 |西刺代理 | 国内HTTP代理 | XicidailiParser.parse_list| http://www.xicidaili.com/wt/ |
+| 10 |搜狗搜索 | 微信公众号搜索页 |SogouParser.parse_weixin_name | https://weixin.sogou.com/weixin?type=1&query=百度 |
 
 
 

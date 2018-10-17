@@ -1,3 +1,6 @@
+
+# page_parser 包使用示例：6行代码写爬虫
+
 import requests
 from page_parser.baidu_parser import BaiduParser
 

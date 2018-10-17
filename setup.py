@@ -11,8 +11,8 @@ import requests
 # 将markdown格式转换为rst格式
 def md_to_rst(from_file, to_file):
     r = requests.post(url='http://c.docverter.com/convert',
-                      data={'to':'rst','from':'markdown'},
-                      files={'input_files[]':open(from_file,'rb')})
+                      data={'to': 'rst', 'from': 'markdown'},
+                      files={'input_files[]': open(from_file, 'rb')})
     if r.ok:
         with open(to_file, "wb") as f:
             f.write(r.content)
@@ -39,9 +39,13 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ),
-    install_requires = [],       # 常用
-    package_data = {
-            # If any package contains *.txt or *.rst files, include them:
-            'page_parser': ['source/*.*'],
+    install_requires=[
+        "requests >= 2.18.4",
+        "parsel >= 1.4.0",
+    ],
+    # 常用
+    package_data={
+        # If any package contains *.txt or *.rst files, include them:
+        'page_parser': ['source/*.*'],
     }
 )
