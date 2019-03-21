@@ -11,7 +11,9 @@ class XicidailiParser(object):
     """
     西刺代理：http://www.xicidaili.com/
     """
-    def parse_index(self, html):
+
+    @staticmethod
+    def parse_index(html):
         """
         解析主页：http://www.xicidaili.com/
         """
@@ -93,7 +95,7 @@ if __name__ == '__main__':
     # url = "http://www.xicidaili.com/nn/"  # 国内高匿代理
     # url = "http://www.xicidaili.com/nt/" # 国内普通代理
     # url= "http://www.xicidaili.com/wn/"# 国内HTTPS代理
-    url= "http://www.xicidaili.com/wt/" # 国内HTTP代理
+    url = "http://www.xicidaili.com/wt/"  # 国内HTTP代理
 
     response = requests.get(url, headers=headers)
 

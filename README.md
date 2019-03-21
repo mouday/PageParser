@@ -23,14 +23,14 @@ pip install page-parser
 
 ```python
 import requests
-from page_parser.baidu_parser import BaiduParser
+from page_parser import BaiduParser
 
 # 1、下载网页
 response = requests.get("https://www.baidu.com/")
 html = response.content.decode("utf-8")
 
 # 2、解析网页
-items = BaiduParser().parse_index(html)
+items = BaiduParser.parse_index(html)
 
 # 3、输出数据
 for item in items: print(item)
@@ -52,14 +52,14 @@ for item in items: print(item)
 | 9 |西刺代理 | 国内HTTP代理 | http://www.xicidaili.com/wt/ |
 | 10 |搜狗搜索 | 微信公众号搜索页  | https://weixin.sogou.com/weixin?type=1&query=百度 |
 | 11 | 煎蛋网 | 主页列表 | http://jandan.net/|
-
+|12| 伯乐在线 | python栏目 | http://python.jobbole.com/|
 
 ## 使用示例
 ```python
 # -*- coding: utf-8 -*-
 
 import requests
-from page_parser.baidu_parser import BaiduParser
+from page_parser import BaiduParser
 
 # 1、下载网页
 url = "https://www.baidu.com/"
@@ -67,8 +67,7 @@ response = requests.get(url)
 response.encoding = response.apparent_encoding
 
 # 2、解析网页
-parser = BaiduParser()
-items = parser.parse_index(response.text)
+items = BaiduParser.parse_index(response.text)
 
 # 3、输出数据
 for item in items:
@@ -127,7 +126,9 @@ class BaiduParser(object):
     """
     百度网：https://www.baidu.com/
     """
-    def parse_index(self, html):
+
+    @staticmethod
+    def parse_index(html):
         """
         解析主页：https://www.baidu.com/
         2018-10-13 pengshiyuyx@gmai.com
@@ -146,7 +147,7 @@ if __name__ == '__main__':
     import requests
     response = requests.get("https://www.baidu.com/")
     response.encoding = response.apparent_encoding
-    items = BaiduParser().parse_index(response.text)
+    items = BaiduParser.parse_index(response.text)
     for item in items:
         print(item)
 
@@ -159,7 +160,7 @@ if __name__ == '__main__':
 
 1. 按照网站分类建立解析类
 
-2. 解析方法包含在解析类中
+2. 解析方法包含在解析类中 为方便调用需要静态方法
 
 3. 因为网页解析有时效性，所以必须`注明日期`
 

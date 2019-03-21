@@ -1,7 +1,18 @@
 PageParser
 ==========
 
-|Build Status|
+|Build Status| |GitHub|
+
+项目简介
+--------
+
+项目名称：六行代码写爬虫
+
+英文名称：PageParser
+
+项目简介：一个爬虫使用的网页解析包，实现最大限度的代码复用
+
+项目目标：不懂网页解析也能写爬虫
 
 安装模块
 --------
@@ -9,6 +20,55 @@ PageParser
 ::
 
     pip install page-parser
+
+最小项目示例：
+
+.. code:: python
+
+    import requests
+    from page_parser import BaiduParser
+
+    # 1、下载网页
+    response = requests.get("https://www.baidu.com/")
+    html = response.content.decode("utf-8")
+
+    # 2、解析网页
+    items = BaiduParser.parse_index(html)
+
+    # 3、输出数据
+    for item in items: print(item)
+    # {'title': '百度一下，你就知道'}
+
+支持网页
+--------
+
++--------+------------+--------------------+-----------------------------------------------------+
+| 序号   | 网站       | 网页名称           | 网页地址                                            |
++========+============+====================+=====================================================+
+| 1      | 百度       | 主页               | https://www.baidu.com/                              |
++--------+------------+--------------------+-----------------------------------------------------+
+| 2      | 豆瓣       | 电影 正在热映      | https://movie.douban.com/                           |
++--------+------------+--------------------+-----------------------------------------------------+
+| 3      | 拉勾       | 招聘职位列表页     | https://www.lagou.com/zhaopin/                      |
++--------+------------+--------------------+-----------------------------------------------------+
+| 4      | 企查查     | 融资事件页         | https://www.qichacha.com/elib\_financing            |
++--------+------------+--------------------+-----------------------------------------------------+
+| 5      | 西刺代理   | 主页               | http://www.xicidaili.com/                           |
++--------+------------+--------------------+-----------------------------------------------------+
+| 6      | 西刺代理   | 国内高匿代理       | http://www.xicidaili.com/nn/                        |
++--------+------------+--------------------+-----------------------------------------------------+
+| 7      | 西刺代理   | 国内普通代理       | http://www.xicidaili.com/nt/                        |
++--------+------------+--------------------+-----------------------------------------------------+
+| 8      | 西刺代理   | 国内HTTPS代理      | http://www.xicidaili.com/wn/                        |
++--------+------------+--------------------+-----------------------------------------------------+
+| 9      | 西刺代理   | 国内HTTP代理       | http://www.xicidaili.com/wt/                        |
++--------+------------+--------------------+-----------------------------------------------------+
+| 10     | 搜狗搜索   | 微信公众号搜索页   | https://weixin.sogou.com/weixin?type=1&query=百度   |
++--------+------------+--------------------+-----------------------------------------------------+
+| 11     | 煎蛋网     | 主页列表           | http://jandan.net/                                  |
++--------+------------+--------------------+-----------------------------------------------------+
+| 12     | 伯乐在线   | python栏目         | http://python.jobbole.com/                          |
++--------+------------+--------------------+-----------------------------------------------------+
 
 使用示例
 --------
@@ -18,7 +78,7 @@ PageParser
     # -*- coding: utf-8 -*-
 
     import requests
-    from page_parser.baidu_parser import BaiduParser
+    from page_parser import BaiduParser
 
     # 1、下载网页
     url = "https://www.baidu.com/"
@@ -26,8 +86,7 @@ PageParser
     response.encoding = response.apparent_encoding
 
     # 2、解析网页
-    parser = BaiduParser()
-    items = parser.parse_index(response.text)
+    items = BaiduParser.parse_index(response.text)
 
     # 3、输出数据
     for item in items:
@@ -64,10 +123,12 @@ PageParser
 
 需要更多的人一起来维护
 
-代码示例
+贡献代码
 --------
 
-贡献代码，如没有更好的理由，应该按照下面的格式，便于使用者调用
+贡献的代码统一放入文件夹：page\_parser
+
+代码示例，如没有更好的理由，应该按照下面的格式，便于使用者调用
 
 baidu\_parser.py
 
@@ -86,7 +147,9 @@ baidu\_parser.py
         """
         百度网：https://www.baidu.com/
         """
-        def parse_index(self, html):
+
+        @staticmethod
+        def parse_index(html):
             """
             解析主页：https://www.baidu.com/
             2018-10-13 pengshiyuyx@gmai.com
@@ -105,7 +168,7 @@ baidu\_parser.py
         import requests
         response = requests.get("https://www.baidu.com/")
         response.encoding = response.apparent_encoding
-        items = BaiduParser().parse_index(response.text)
+        items = BaiduParser.parse_index(response.text)
         for item in items:
             print(item)
 
@@ -119,7 +182,7 @@ baidu\_parser.py
 
 1. 按照网站分类建立解析类
 
-2. 解析方法包含在解析类中
+2. 解析方法包含在解析类中 为方便调用需要静态方法
 
 3. 因为网页解析有时效性，所以必须\ ``注明日期``
 
@@ -146,10 +209,37 @@ baidu\_parser.py
 加入我们
 --------
 
+基本要求
+~~~~~~~~
+
+1. python的基本语法 + 面向对象 + 迭代器（yield）
+2. 掌握的库：requests、parsel、scrapy（了解即可）
+3. 解析库统一使用parsel（基于xpath），简单高效，与scrapy无缝衔接
+4. 不太懂也没关系，自己看参考文章，只要愿意学就会，瞬间提升自己
+
+参考文章：
+
+1. `Python编程：class类面向对象 <https://blog.csdn.net/mouday/article/details/79002712>`__
+
+2. `Python编程：生成器yield与yield
+   from区别简单理解 <https://blog.csdn.net/mouday/article/details/80760973>`__
+
+3. `Python爬虫：requests库基本使用 <https://blog.csdn.net/mouday/article/details/80087627>`__
+
+4. `Python网络爬虫之scrapy框架 <https://blog.csdn.net/mouday/article/details/79736108>`__
+
+5. `Python爬虫：xpath常用方法示例 <https://blog.csdn.net/mouday/article/details/80364436>`__
+
+6. `python爬虫：scrapy框架xpath和css选择器语法 <https://blog.csdn.net/mouday/article/details/80455560>`__
+
+联系方式
+~~~~~~~~
+
 PageParser QQ群号: 932301512
 
-.. figure:: source/page-parser-min.jpeg
+.. figure:: images/page-parser-min.jpeg
    :alt: 
 
 .. |Build Status| image:: https://travis-ci.org/mouday/PageParser.svg?branch=master
    :target: https://travis-ci.org/mouday/PageParser
+.. |GitHub| image:: https://img.shields.io/github/license/mashape/apistatus.svg

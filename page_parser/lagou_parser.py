@@ -10,7 +10,9 @@ class LagouParser(object):
     """
     拉勾网：https://www.lagou.com
     """
-    def parse_zhaopin(self, html):
+
+    @staticmethod
+    def parse_zhaopin(html):
         """
         解析招聘职位列表页: https://www.lagou.com/zhaopin/
         """

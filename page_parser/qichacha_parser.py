@@ -12,7 +12,8 @@ class QichachaParser(object):
     企查查：https://www.qichacha.com/
     """
 
-    def parse_financing(self, html):
+    @staticmethod
+    def parse_financing(html):
         """
         解析融资事件页：https://www.qichacha.com/elib_financing
         """
@@ -46,6 +47,7 @@ class QichachaParser(object):
 
 if __name__ == '__main__':
     import requests
+
     headers = {
         "user-agent": "Mozilla/5.0 (Windows NT 6.3; rv:36.0) Gecko/20100101 Firefox/36.0",
     }

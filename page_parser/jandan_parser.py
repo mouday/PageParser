@@ -11,7 +11,8 @@ class JandanParser(object):
     煎蛋网：http://jandan.net/
     """
 
-    def parse_index(self, html):
+    @staticmethod
+    def parse_index(html):
         """
         解析主页：http://jandan.net/
         :param html: {str} 网页文本

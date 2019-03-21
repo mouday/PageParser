@@ -11,7 +11,8 @@ class SogouParser(object):
     搜狗搜索：https://www.sogou.com/
     """
 
-    def parse_weixin_name(self, html):
+    @staticmethod
+    def parse_weixin_name(html):
         """
         解析搜狗微信公众号搜索，搜到的微信信息结果
         https://weixin.sogou.com/weixin?type=1&query=百度

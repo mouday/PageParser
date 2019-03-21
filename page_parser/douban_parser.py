@@ -11,7 +11,8 @@ class DoubanParser(object):
     豆瓣网：https://www.douban.com/
     """
 
-    def parse_movie(self, html):
+    @staticmethod
+    def parse_movie(html):
         """
         豆瓣电影 正在热映：https://movie.douban.com/
 

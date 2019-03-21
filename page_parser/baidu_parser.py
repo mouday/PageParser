@@ -10,7 +10,9 @@ class BaiduParser(object):
     """
     百度网：https://www.baidu.com/
     """
-    def parse_index(self, html):
+
+    @staticmethod
+    def parse_index(html):
         """
         解析主页：https://www.baidu.com/
         :param html: {str} 网页文本
@@ -26,10 +28,11 @@ class BaiduParser(object):
 
 if __name__ == '__main__':
     import requests
+
     response = requests.get("https://www.baidu.com/")
     response.encoding = response.apparent_encoding
     items = BaiduParser().parse_index(response.text)
     for item in items:
         print(item)
 
-    # {'title': '百度一下，你就知道'}
+        # {'title': '百度一下，你就知道'}
