@@ -2,6 +2,11 @@
 
 [![Build Status](https://travis-ci.org/mouday/PageParser.svg?branch=master)](https://travis-ci.org/mouday/PageParser)
 ![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/page-parser.svg)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/page-parser.svg)
+![PyPI](https://img.shields.io/pypi/v/page-parser.svg)
+![GitHub last commit](https://img.shields.io/github/last-commit/mouday/PageParser.svg)
+![PyPI - Format](https://img.shields.io/pypi/format/page-parser.svg)
 
 ## 项目简介
 
