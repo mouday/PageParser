@@ -1,2 +1,4 @@
 requests >= 2.18.4
 parsel >= 1.4.0
+pycryptodome >= 3.20.0
+dateparser >= 0.7.2

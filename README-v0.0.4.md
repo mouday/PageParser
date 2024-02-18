@@ -18,7 +18,6 @@
 
 项目目标：不懂网页解析也能写爬虫
 
-> 注意：本项目仅用于学习交流，不可用于商业项目
 
 ## 安装模块
 ```
@@ -28,13 +27,15 @@ pip install page-parser
 最小项目示例：
 
 ```python
-import page_parser
+import requests
+from page_parser import BaiduParser
 
-# 1、指定网页
-url = "https://www.baidu.com/"
+# 1、下载网页
+response = requests.get("https://www.baidu.com/")
+html = response.content.decode("utf-8")
 
 # 2、解析网页
-items = page_parser.parse(url)
+items = BaiduParser.parse_index(html)
 
 # 3、输出数据
 for item in items: print(item)
@@ -49,15 +50,37 @@ for item in items: print(item)
 | 2 |豆瓣 | 电影 正在热映 | https://movie.douban.com/ |
 | 3 |拉勾 | 招聘职位列表页  | https://www.lagou.com/zhaopin/ |
 | 4 |企查查 | 融资事件页  | https://www.qichacha.com/elib_financing |
-| 5 |西刺代理 | 主页  | http://www.xicidaili.com/ |
+| 5 |西刺代理 | 主页  |http://www.xicidaili.com/ |
 | 6 |西刺代理 | 国内高匿代理 | http://www.xicidaili.com/nn/ |
-| 7 |西刺代理 | 国内普通代理 | http://www.xicidaili.com/nt/ |
-| 8 |西刺代理 | 国内HTTPS代理 | http://www.xicidaili.com/wn/ |
+| 7 |西刺代理 | 国内普通代理 |http://www.xicidaili.com/nt/ |
+| 8 |西刺代理 | 国内HTTPS代理 |http://www.xicidaili.com/wn/ |
 | 9 |西刺代理 | 国内HTTP代理 | http://www.xicidaili.com/wt/ |
 | 10 |搜狗搜索 | 微信公众号搜索页  | https://weixin.sogou.com/weixin?type=1&query=百度 |
 | 11 | 煎蛋网 | 主页列表 | http://jandan.net/|
 |12| 伯乐在线 | python栏目 | http://python.jobbole.com/|
 
+## 使用示例
+```python
+# -*- coding: utf-8 -*-
+
+import requests
+from page_parser import BaiduParser
+
+# 1、下载网页
+url = "https://www.baidu.com/"
+response = requests.get(url)
+response.encoding = response.apparent_encoding
+
+# 2、解析网页
+items = BaiduParser.parse_index(response.text)
+
+# 3、输出数据
+for item in items:
+    print(item)
+
+# {'title': '百度一下，你就知道'}
+
+```
 
 ## 网络爬虫工作流程：
 
@@ -94,6 +117,48 @@ for item in items: print(item)
 
 baidu_parser.py
 
+```python
+
+# -*- coding: utf-8 -*-
+
+# @Date    : 2018-10-13
+# @Author  : Peng Shiyu
+
+from parsel import Selector
+
+
+class BaiduParser(object):
+    """
+    百度网：https://www.baidu.com/
+    """
+
+    @staticmethod
+    def parse_index(html):
+        """
+        解析主页：https://www.baidu.com/
+        2018-10-13 pengshiyuyx@gmai.com
+        :param html: {str} 网页文本
+        :return: {iterator} 抽取的内容
+        """
+        sel = Selector(html)
+        title = sel.css("title::text").extract_first()
+        item = {
+            "title": title
+        }
+        yield item
+
+
+if __name__ == '__main__':
+    import requests
+    response = requests.get("https://www.baidu.com/")
+    response.encoding = response.apparent_encoding
+    items = BaiduParser.parse_index(response.text)
+    for item in items:
+        print(item)
+
+    # {'title': '百度一下，你就知道'}
+
+```
 ## 说明：
 
 ### 原则：
